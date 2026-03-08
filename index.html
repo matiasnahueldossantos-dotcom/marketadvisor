@@ -95,6 +95,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;ali
 .ditem-label{font-family:"Outfit",sans-serif;font-size:13px;font-weight:600;color:#475569;margin-bottom:8px;letter-spacing:0.01em;}
 .ditem-venta{font-family:"JetBrains Mono",monospace;font-size:28px;font-weight:700;color:#0F172A;letter-spacing:-0.01em;margin-bottom:4px;}
 .ditem-compra{font-size:12px;color:#94A3B8;font-family:"JetBrains Mono",monospace;}
+.ditem-venta{display:flex;align-items:center;gap:10px;}
+.dchg{font-family:"JetBrains Mono",monospace;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600;}
+.dchg-up{color:#059669;background:rgba(16,185,129,0.1);}
+.dchg-dn{color:#DC2626;background:rgba(239,68,68,0.08);}
 .ditem-compra strong{color:#64748B;}
 .ditem-dot{position:absolute;top:18px;right:20px;width:6px;height:6px;border-radius:50%;background:var(--ve);box-shadow:0 0 6px var(--ve);}
 
@@ -497,31 +501,38 @@ function fetchDolar(){
   fetch('https://dolarapi.com/v1/dolares')
     .then(function(r){return r.json();})
     .then(function(data){
-      var m={oficial:'Dólar Oficial',blue:'Dólar Blue',bolsa:'Dólar MEP',contadoconliqui:'Dólar CCL',tarjeta:'Dólar Tarjeta',mayorista:'Dólar Mayorista'};
+      var m={oficial:'Dolar Oficial',blue:'Dolar Blue',bolsa:'Dolar MEP',contadoconliqui:'Dolar CCL',tarjeta:'Dolar Tarjeta',mayorista:'Dolar Mayorista'};
       var orden=['oficial','blue','bolsa','contadoconliqui','tarjeta','mayorista'];
       var arr=[];
-      orden.forEach(function(k){var d=data.find(function(x){return x.casa===k;});if(d)arr.push({nom:m[k],c:d.compra,v:d.venta});});
-      if(!arr.length)return;
+      orden.forEach(function(k){
+        var d=data.find(function(x){return x.casa===k;});
+        if(d) arr.push({nom:m[k],c:d.compra,v:d.venta});
+      });
+      if(!arr.length) return;
       SD=arr;
       var html='';
       arr.forEach(function(d){
         var prev=SD_PREV[d.nom];
-        var chgHtml='';
-        if(prev&&prev!==d.v){
+        var badge='';
+        if(prev && prev!==d.v){
           var diff=d.v-prev;
           var up=diff>0;
-          chgHtml='<span style="font-family:\'JetBrains Mono\',monospace;font-size:10px;padding:2px 8px;border-radius:100px;font-weight:600;color:'+(up?'#059669':'#DC2626')+';background:'+(up?'rgba(16,185,129,0.1)':'rgba(239,68,68,0.08)')+'">'+(up?'▲ +':'▼ ')+Math.abs(diff).toFixed(0)+'</span>';
+          var col=up?'#059669':'#DC2626';
+          var bg=up?'rgba(16,185,129,0.1)':'rgba(239,68,68,0.08)';
+          var arrow=up?'up':'dn';
+          badge='<span class="dchg dchg-'+arrow+'">'+( up?'+':'')+diff.toFixed(0)+'</span>';
         }
-        html+='<div class="ditem"><div class="ditem-dot"></div>';
+        SD_PREV[d.nom]=d.v;
+        html+='<div class="ditem">';
+        html+='<div class="ditem-dot"></div>';
         html+='<div class="ditem-label">'+d.nom+'</div>';
-        html+='<div class="ditem-venta" style="display:flex;align-items:center;gap:10px;">$'+fN(d.v)+chgHtml+'</div>';
+        html+='<div class="ditem-venta">$'+fN(d.v)+badge+'</div>';
         html+='<div class="ditem-compra">Compra <strong>$'+fN(d.c)+'</strong></div>';
         html+='</div>';
-        SD_PREV[d.nom]=d.v;
       });
       document.getElementById('boxdolar').innerHTML=html;
       setTicker();setHora();
-    }).catch(function(){});
+    }).catch(function(e){console.error('Dolar:',e);});
 }
 
 /* ---- CRYPTO ---- */
@@ -622,3 +633,8 @@ setTimeout(actualizarTodo,300);
 setInterval(actualizarTodo,60000);
 
 /* ---- SCROLL ANIMATIONS 
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
