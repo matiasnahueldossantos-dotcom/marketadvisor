@@ -4,134 +4,468 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matías Dos Santos | Asesor Financiero CNV 2349</title>
-  <meta name="description" content="Asesoramiento financiero profesional con noticias, cotizaciones y seguimiento de mercado." />
+  <meta name="description" content="Asesoramiento financiero profesional con foco en estrategia, seguimiento de mercado y contacto directo." />
   <style>
     :root{
-      --bg:#f5f7fb;--card:#ffffff;--text:#0f172a;--muted:#64748b;--line:rgba(15,23,42,.08);
-      --primary:#0f4c81;--primary2:#2563eb;--accent:#f59e0b;--shadow:0 16px 40px rgba(15,23,42,.08);
-      --radius:22px;--container:1200px;
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:rgba(15,23,42,.08);
+      --primary:#0f4c81;
+      --primary2:#2563eb;
+      --accent:#f59e0b;
+      --shadow:0 16px 40px rgba(15,23,42,.08);
+      --radius:22px;
+      --container:1200px;
+      --success:#16a34a;
+      --danger:#dc2626;
     }
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
-    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:
-      radial-gradient(circle at top left, rgba(37,99,235,.05), transparent 34%),
-      radial-gradient(circle at top right, rgba(245,158,11,.06), transparent 28%),var(--bg);line-height:1.55}
-    a{text-decoration:none;color:inherit}.container{width:min(var(--container),calc(100% - 28px));margin:0 auto}.section{padding:80px 0}
-    .eyebrow{color:var(--primary2);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px}
-    .title{font-size:clamp(28px,4vw,48px);line-height:1.05;letter-spacing:-.03em;margin-bottom:14px}
-    .lead{color:#475569;font-size:17px;max-width:780px}
-    .top-sticky{position:sticky;top:0;z-index:1100;backdrop-filter:blur(12px);background:rgba(245,247,251,.92);border-bottom:1px solid var(--line)}
-    .mini-ticker{height:42px;overflow:hidden;border-bottom:1px solid var(--line);background:#0f172a;color:#fff;display:flex;align-items:center}
-    .mini-ticker-track,.news-track{display:flex;align-items:center;gap:14px;min-width:max-content;padding-left:18px;animation:scroll-left 38s linear infinite}
-    .news-track{gap:30px;animation-duration:48s}
-    .mini-ticker:hover .mini-ticker-track,.news-strip:hover .news-track{animation-play-state:paused}
-    .ticker-pill{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);font-size:13px;white-space:nowrap}
-    .ticker-logo{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111827;font-size:11px;font-weight:700;flex-shrink:0}
-    .up{color:#86efac}.down{color:#fca5a5}
-    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:14px;font-weight:700}.brand-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 12px 24px rgba(37,99,235,.20)}
-    .brand small{display:block;color:var(--primary2);font-size:12px;font-weight:800}
-    .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nav-links a{color:#475569;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:700}.nav-links a:hover{background:rgba(15,23,42,.05);color:var(--text)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border:0;border-radius:14px;font-weight:700;cursor:pointer;transition:.2s ease}.btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),#fbbf24);color:#111827;box-shadow:0 12px 24px rgba(245,158,11,.24)} .btn-outline{background:#fff;color:var(--text);border:1px solid var(--line)}
-    .news-strip{height:46px;overflow:hidden;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center}
-    .news-label{flex-shrink:0;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--primary2);padding:0 16px;border-right:1px solid var(--line);height:100%;display:flex;align-items:center;background:#f8fbff}
-    .news-item{font-size:14px;color:#1e293b;white-space:nowrap}.news-item span{color:var(--primary2);font-weight:700;margin-right:8px}
-    .hero{padding:56px 0 36px}.hero-card{display:grid;grid-template-columns:1.08fr .92fr;min-height:600px;overflow:hidden;border-radius:30px;background:linear-gradient(135deg,#0b2540 0%, #0f4c81 55%, #2563eb 100%);color:#fff;box-shadow:0 24px 70px rgba(15,23,42,.14)}
-    .hero-copy{padding:58px 54px}.hero-badge{display:inline-block;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);font-size:12px;font-weight:700;margin-bottom:20px}
-    .hero h1{font-size:clamp(38px,6vw,70px);line-height:1;letter-spacing:-.04em;margin-bottom:16px}.hero h1 span{color:#fde68a}
-    .hero p{font-size:18px;color:rgba(255,255,255,.84);max-width:640px;margin-bottom:26px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
-    .hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{padding:18px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10)}.metric strong{display:block;font-size:24px;margin-bottom:6px}.metric span{font-size:13px;color:rgba(255,255,255,.74)}
-    .hero-side{padding:28px;display:flex;align-items:center}.hero-panel{width:100%;border-radius:24px;padding:22px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}.hero-panel h3{margin-bottom:16px}
-    .summary-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px}.summary-row:last-child{border-bottom:0}.summary-row strong{font-size:15px}
-    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)} .icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(37,99,235,.10), rgba(245,158,11,.10));font-size:24px}
-    .card h3{font-size:20px;margin:12px 0 10px}.card p{font-size:15px;color:#475569}
-    .table-wrap{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
-    table{width:100%;border-collapse:collapse;background:#fff} thead{background:#0f172a;color:#fff} th,td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:14px} th{font-size:13px;text-transform:uppercase;letter-spacing:.08em}
-    tbody tr:hover{background:#f8fafc}.badge{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}.badge.up{background:rgba(22,163,74,.10);color:#15803d}.badge.down{background:rgba(220,38,38,.10);color:#b91c1c}.badge.flat{background:rgba(100,116,139,.12);color:#475569}
-    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}.contact-box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}.contact-list{display:grid;gap:14px;margin-top:18px}.contact-item{padding:16px 18px;border-radius:16px;background:#f8fafc;border:1px solid var(--line)}.contact-item strong{display:block;margin-bottom:4px}
-    footer{padding:34px 0 48px;color:#64748b}.footer-card{background:#0f172a;color:rgba(255,255,255,.84);border-radius:24px;padding:28px}.footer-card strong{display:block;color:#fff;margin-bottom:10px}.footer-card p{font-size:14px;color:rgba(255,255,255,.70)}
-    @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    @media (max-width:1024px){.hero-card,.cards-3,.contact-wrap{grid-template-columns:1fr}.hero-copy{padding:38px 22px}.hero-side{padding:0 22px 22px}.hero-metrics{grid-template-columns:1fr}.table-wrap{overflow:auto}table{min-width:760px}}
-    @media (max-width:760px){.nav{align-items:flex-start;flex-direction:column}.news-label{display:none}.mini-ticker{height:38px}.news-strip{height:42px}.section{padding:64px 0}.hero{padding-top:34px}}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.05), transparent 34%),
+        radial-gradient(circle at top right, rgba(245,158,11,.06), transparent 28%),
+        var(--bg);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--container),calc(100% - 28px));margin:0 auto}
+    .section{padding:78px 0}
+    .eyebrow{
+      color:var(--primary2);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:14px;
+    }
+    .title{
+      font-size:clamp(28px,4vw,48px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+      margin-bottom:14px;
+    }
+    .lead{
+      color:#475569;
+      font-size:17px;
+      max-width:760px;
+    }
+
+    /* sticky prices only */
+    .mini-ticker{
+      position:sticky;
+      top:0;
+      z-index:1200;
+      height:42px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:#0f172a;
+      color:#fff;
+      display:flex;
+      align-items:center;
+    }
+    .mini-ticker-track{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
+      padding-left:18px;
+      animation:scroll-left 38s linear infinite;
+    }
+    .mini-ticker:hover .mini-ticker-track{animation-play-state:paused}
+    .ticker-pill{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .ticker-logo{
+      width:20px;height:20px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#fff;color:#111827;font-size:11px;font-weight:700;flex-shrink:0;
+    }
+    .up{color:#86efac}
+    .down{color:#fca5a5}
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:16px 0;
+    }
+    .brand{display:flex;align-items:center;gap:14px;font-weight:700}
+    .brand-mark{
+      width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 12px 24px rgba(37,99,235,.20);
+    }
+    .brand small{
+      display:block;
+      color:var(--primary2);
+      font-size:12px;
+      font-weight:800;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      color:#475569;
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:14px;
+      font-weight:700;
+    }
+    .nav-links a:hover{background:rgba(15,23,42,.05);color:var(--text)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border:0;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),#fbbf24);
+      color:#111827;
+      box-shadow:0 12px 24px rgba(245,158,11,.24);
+    }
+    .btn-outline{
+      background:#fff;
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+
+    .hero{padding:42px 0 24px}
+    .hero-card{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      min-height:560px;
+      overflow:hidden;
+      border-radius:30px;
+      background:linear-gradient(135deg,#0b2540 0%, #0f4c81 55%, #2563eb 100%);
+      color:#fff;
+      box-shadow:0 24px 70px rgba(15,23,42,.14);
+    }
+    .hero-copy{padding:58px 54px}
+    .hero-badge{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+    .hero h1{
+      font-size:clamp(38px,6vw,68px);
+      line-height:1;
+      letter-spacing:-.04em;
+      margin-bottom:16px;
+    }
+    .hero h1 span{color:#fde68a}
+    .hero p{
+      font-size:18px;
+      color:rgba(255,255,255,.84);
+      max-width:640px;
+      margin-bottom:26px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .metric{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .metric strong{display:block;font-size:24px;margin-bottom:6px}
+    .metric span{font-size:13px;color:rgba(255,255,255,.76)}
+    .hero-side{padding:28px;display:flex;align-items:center}
+    .hero-panel{
+      width:100%;
+      border-radius:24px;
+      padding:24px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+    }
+    .hero-panel h3{margin-bottom:16px;font-size:20px}
+    .hero-list{display:grid;gap:14px}
+    .hero-list-item{
+      padding:16px 18px;
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .hero-list-item strong{display:block;margin-bottom:4px}
+    .hero-list-item span{font-size:14px;color:rgba(255,255,255,.78)}
+
+    .news-carousel-wrap{
+      margin-top:26px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      overflow:hidden;
+    }
+    .news-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+    .news-track{
+      display:flex;
+      gap:18px;
+      min-width:max-content;
+      animation:scroll-left 34s linear infinite;
+    }
+    .news-carousel-wrap:hover .news-track{animation-play-state:paused}
+    .news-card{
+      width:340px;
+      border-radius:22px;
+      padding:22px;
+      background:linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
+      border:1px solid var(--line);
+    }
+    .news-card .tag{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(37,99,235,.08);
+      color:var(--primary2);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+    .news-card h3{
+      font-size:20px;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+    .news-card p{
+      color:#475569;
+      font-size:14px;
+    }
+
+    .cards-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:28px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .icon{
+      width:54px;height:54px;border-radius:16px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(37,99,235,.10), rgba(245,158,11,.10));
+      font-size:24px;
+    }
+    .card h3{font-size:20px;margin:12px 0 10px}
+    .card p{font-size:15px;color:#475569}
+
+    .table-wrap{
+      margin-top:28px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    table{width:100%;border-collapse:collapse;background:#fff}
+    thead{background:#0f172a;color:#fff}
+    th,td{
+      padding:16px 18px;
+      text-align:left;
+      border-bottom:1px solid var(--line);
+      font-size:14px;
+    }
+    th{font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+    tbody tr:hover{background:#f8fafc}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+    }
+    .badge.up{background:rgba(22,163,74,.10);color:#15803d}
+    .badge.down{background:rgba(220,38,38,.10);color:#b91c1c}
+    .badge.flat{background:rgba(100,116,139,.12);color:#475569}
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin-top:28px;
+    }
+    .contact-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .contact-list{display:grid;gap:14px;margin-top:18px}
+    .contact-item{
+      padding:16px 18px;
+      border-radius:16px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+    }
+    .contact-item strong{display:block;margin-bottom:4px}
+
+    footer{padding:34px 0 48px;color:#64748b}
+    .footer-card{
+      background:#0f172a;
+      color:rgba(255,255,255,.84);
+      border-radius:24px;
+      padding:28px;
+    }
+    .footer-card strong{display:block;color:#fff;margin-bottom:10px}
+    .footer-card p{font-size:14px;color:rgba(255,255,255,.70)}
+
+    @keyframes scroll-left{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+
+    @media (max-width:1024px){
+      .hero-card,.cards-3,.contact-wrap{grid-template-columns:1fr}
+      .hero-copy{padding:38px 22px}
+      .hero-side{padding:0 22px 22px}
+      .hero-metrics{grid-template-columns:1fr}
+      .table-wrap{overflow:auto}
+      table{min-width:760px}
+    }
+    @media (max-width:760px){
+      .nav{align-items:flex-start;flex-direction:column}
+      .section{padding:62px 0}
+      .hero{padding-top:28px}
+      .mini-ticker{height:40px}
+      .news-card{width:290px}
+    }
   </style>
 </head>
 <body>
-  <div class="top-sticky">
-    <div class="mini-ticker">
-      <div class="mini-ticker-track" id="tickerTrack"></div>
-      <div class="mini-ticker-track" id="tickerTrackClone"></div>
-    </div>
-    <div class="container nav">
-      <a href="#inicio" class="brand">
-        <div class="brand-mark">M</div>
-        <div>Matías Dos Santos<small>Asesor Financiero · CNV 2349</small></div>
-      </a>
-      <div class="nav-links">
-        <a href="#noticias">Noticias</a>
-        <a href="#tablas">Cotizadores</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-        <a class="btn btn-primary" href="https://wa.me/5493764681534" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </div>
-    </div>
-    <div class="news-strip">
-      <div class="news-label">Flash del día</div>
-      <div class="news-track" id="newsTrack"></div>
-      <div class="news-track" id="newsTrackClone"></div>
-    </div>
+  <div class="mini-ticker">
+    <div class="mini-ticker-track" id="tickerTrack"></div>
+    <div class="mini-ticker-track" id="tickerTrackClone"></div>
   </div>
+
+  <header class="container nav">
+    <a href="#inicio" class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        Matías Dos Santos
+        <small>Asesor Financiero · CNV 2349</small>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#noticias">Noticias</a>
+      <a href="#cotizadores">Cotizadores</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn-primary" href="https://wa.me/5493764681534" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
+  </header>
 
   <main id="inicio">
     <section class="hero container">
       <div class="hero-card">
         <div class="hero-copy">
-          <div class="hero-badge">Diseño más comercial + información destacada arriba</div>
-          <h1>Invertí con más <span>claridad</span>, más seguimiento y mejor presentación.</h1>
-          <p>Ahora la web arranca con un carrusel de precios, un carrusel de noticias que te acompaña al hacer scroll y una estructura lista para sumar cotizaciones, análisis y contenido diario.</p>
+          <div class="hero-badge">Asesoramiento financiero profesional</div>
+          <h1>Invertí con más <span>claridad</span> y una estrategia pensada para vos.</h1>
+          <p>Te acompaño en el armado y seguimiento de cartera con foco en bonos, acciones, CEDEARs, cobertura cambiaria y lectura de mercado.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/5493764681534" target="_blank" rel="noopener noreferrer">Quiero asesoramiento</a>
-            <a class="btn btn-outline" href="#tablas">Ver cotizaciones</a>
+            <a class="btn btn-outline" href="#cotizadores">Ver cotizaciones</a>
           </div>
           <div class="hero-metrics">
-            <div class="metric"><strong>Sticky</strong><span>Los carruseles superiores quedan visibles al desplazarte por la página.</span></div>
-            <div class="metric"><strong>Noticias</strong><span>Espacio rápido para subir el resumen del día de lo más nuevo a lo más viejo.</span></div>
-            <div class="metric"><strong>Tablas</strong><span>Separación clara entre dólar, cripto y mercados globales.</span></div>
+            <div class="metric"><strong>CNV 2349</strong><span>Matrícula visible para reforzar confianza y respaldo profesional.</span></div>
+            <div class="metric"><strong>Carteras</strong><span>Armado, revisión y seguimiento con criterio y gestión de riesgo.</span></div>
+            <div class="metric"><strong>Mercado</strong><span>Lectura de dólar, renta fija, acciones y activos globales.</span></div>
           </div>
         </div>
         <div class="hero-side">
           <div class="hero-panel">
-            <h3>Lo que agregué en esta versión</h3>
-            <div class="summary-row"><span>Carrusel superior</span><strong>Acciones + cripto</strong></div>
-            <div class="summary-row"><span>Cinta de noticias</span><strong>Rápida y visible</strong></div>
-            <div class="summary-row"><span>Tablas de cotización</span><strong>Dólar, cripto y globales</strong></div>
-            <div class="summary-row"><span>Base escalable</span><strong>Lista para datos reales</strong></div>
+            <h3>En qué te puedo ayudar</h3>
+            <div class="hero-list">
+              <div class="hero-list-item"><strong>Armado de cartera</strong><span>Estrategia según perfil, objetivos y horizonte.</span></div>
+              <div class="hero-list-item"><strong>Revisión de cartera</strong><span>Análisis y optimización de posiciones ya tomadas.</span></div>
+              <div class="hero-list-item"><strong>Seguimiento de mercado</strong><span>Lectura clara para tomar decisiones con más criterio.</span></div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="noticias">
-      <div class="container">
-        <div class="eyebrow">Noticias</div>
-        <h2 class="title">Bloque rápido para subir la información del día</h2>
-        <p class="lead">Acá podés publicar titulares breves. En esta versión te lo dejé como carrusel horizontal arriba y también con una sección visible dentro del sitio.</p>
-        <div class="cards-3">
-          <div class="card"><div class="icon">📰</div><h3>Flash de mercado</h3><p>Resumen corto del día: dólar, bonos, Merval, tasas, petróleo, Fed o noticias locales.</p></div>
-          <div class="card"><div class="icon">⚡</div><h3>Lectura rápida</h3><p>Formato ideal para publicar algo útil sin escribir una nota completa ni romper el diseño.</p></div>
-          <div class="card"><div class="icon">📌</div><h3>Orden temporal</h3><p>Se puede ir cargando del evento más reciente al más viejo y actualizarlo todos los días.</p></div>
+      <div class="news-carousel-wrap" id="noticias">
+        <div class="news-head">
+          <div>
+            <div class="eyebrow">Noticias</div>
+            <h2 class="title" style="font-size:clamp(24px,3.2vw,34px);margin-bottom:8px;">Resumen rápido del mercado</h2>
+            <p class="lead" style="font-size:15px;">Espacio ideal para cargar titulares y contexto del día sin que molesten al navegar.</p>
+          </div>
         </div>
+        <div class="news-track" id="newsTrack"></div>
+        <div class="news-track" id="newsTrackClone" style="margin-top:18px;"></div>
       </div>
     </section>
 
-    <section class="section" id="tablas">
+    <section class="section" id="cotizadores">
       <div class="container">
         <div class="eyebrow">Cotizadores</div>
-        <h2 class="title">Tabla de dólares, criptos y mercados globales</h2>
-        <p class="lead">Por ahora te la dejo prolija y lista para usar. En la siguiente etapa la conectamos a datos reales para que se actualice sola.</p>
+        <h2 class="title">Dólares, cripto y mercados globales</h2>
+        <p class="lead">Una vista ordenada para mostrar referencias clave del mercado en un solo lugar.</p>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Activo</th><th>Tipo</th><th>Precio</th><th>Variación</th><th>Estado</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Activo</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Variación</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
             <tbody id="cotizacionesBody"></tbody>
           </table>
         </div>
@@ -141,12 +475,24 @@
     <section class="section" id="servicios">
       <div class="container">
         <div class="eyebrow">Servicios</div>
-        <h2 class="title">Una web más comercial para captar clientes</h2>
-        <p class="lead">El visitante ve primero movimiento, información y contacto rápido. Eso transmite más actividad, más presencia y más valor profesional.</p>
+        <h2 class="title">Asesoramiento con foco en estrategia y seguimiento</h2>
+        <p class="lead">Una propuesta clara para quienes buscan invertir con más orden, más contexto y mejor acompañamiento.</p>
         <div class="cards-3">
-          <div class="card"><div class="icon">📈</div><h3>Armado de cartera</h3><p>Planificación y estructuración según perfil, riesgo, plazo y objetivos concretos.</p></div>
-          <div class="card"><div class="icon">💵</div><h3>Seguimiento de mercado</h3><p>Lectura de dólar, bonos, acciones, CEDEARs y variables que impactan en tus decisiones.</p></div>
-          <div class="card"><div class="icon">🤝</div><h3>Contacto directo</h3><p>Botón de WhatsApp visible y accesible durante toda la navegación para convertir mejor.</p></div>
+          <div class="card">
+            <div class="icon">📈</div>
+            <h3>Armado de cartera</h3>
+            <p>Planificación y estructuración según perfil, riesgo, plazo y objetivos concretos.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💵</div>
+            <h3>Seguimiento de mercado</h3>
+            <p>Lectura de dólar, bonos, acciones, CEDEARs y variables que impactan en tus decisiones.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Contacto directo</h3>
+            <p>Canal rápido para conversar sobre tu estrategia y evaluar cómo encarar tu cartera.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -155,21 +501,27 @@
       <div class="container">
         <div class="eyebrow">Contacto</div>
         <h2 class="title">Hablemos de tu estrategia</h2>
-        <p class="lead">Después podemos sumar formulario real, newsletter, informes y login. Esta etapa está enfocada en presencia, claridad y conversión.</p>
+        <p class="lead">Podés escribirme directamente por WhatsApp o mail para coordinar una consulta.</p>
         <div class="contact-wrap">
           <div class="contact-box">
             <h3>Canales directos</h3>
             <div class="contact-list">
-              <a class="contact-item" href="https://wa.me/5493764681534" target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong><span>3764 681534</span></a>
-              <a class="contact-item" href="mailto:matiasnahueldossantos@gmail.com"><strong>Email</strong><span>matiasnahueldossantos@gmail.com</span></a>
+              <a class="contact-item" href="https://wa.me/5493764681534" target="_blank" rel="noopener noreferrer">
+                <strong>WhatsApp</strong>
+                <span>3764 681534</span>
+              </a>
+              <a class="contact-item" href="mailto:matiasnahueldossantos@gmail.com">
+                <strong>Email</strong>
+                <span>matiasnahueldossantos@gmail.com</span>
+              </a>
             </div>
           </div>
           <div class="contact-box">
-            <h3>Qué sigue después</h3>
+            <h3>Consultas frecuentes</h3>
             <div class="contact-list">
-              <div class="contact-item"><strong>Formulario real</strong><span>Para recibir consultas directo desde la web.</span></div>
-              <div class="contact-item"><strong>Noticias dinámicas</strong><span>Para cargar contenido diario desde un panel simple.</span></div>
-              <div class="contact-item"><strong>Cotizaciones automáticas</strong><span>Para actualizar la tabla sola con datos reales.</span></div>
+              <div class="contact-item"><strong>Empezar a invertir</strong><span>Para ordenar tus primeros pasos y definir estrategia.</span></div>
+              <div class="contact-item"><strong>Revisar cartera actual</strong><span>Para evaluar posiciones y detectar mejoras.</span></div>
+              <div class="contact-item"><strong>Seguimiento y cobertura</strong><span>Para tomar decisiones con más contexto y disciplina.</span></div>
             </div>
           </div>
         </div>
@@ -195,13 +547,14 @@
       { logo:'M', name:'Mercado Libre', price:'USD 1,812.40', chg:'+0.72%', dir:'up' },
       { logo:'Y', name:'YPF', price:'ARS 31,580', chg:'-0.55%', dir:'down' }
     ];
+
     const newsData = [
-      'Mercado local atento a dólar financiero y dinámica de bonos soberanos.',
-      'Bitcoin sostiene firmeza y el sector cripto sigue captando flujo global.',
-      'Wall Street reacciona a expectativas de tasas, inflación y resultados.',
-      'Energía y petróleo vuelven al radar por tensiones geopolíticas.',
-      'El Merval sigue condicionado por volumen, contexto local y dólar.'
+      { tag:'Mercado local', title:'Dólar financiero y bonos vuelven al centro de la escena', text:'Una jornada marcada por seguimiento de brecha, renta fija y volumen en activos argentinos.' },
+      { tag:'Wall Street', title:'Tasas, inflación y resultados siguen marcando el ritmo', text:'Los principales índices operan atentos a datos macro y expectativas de política monetaria.' },
+      { tag:'Cripto', title:'Bitcoin sostiene protagonismo dentro del mercado global', text:'El flujo hacia activos digitales sigue atrayendo atención y condiciona el resto del ecosistema.' },
+      { tag:'Energía', title:'Petróleo y sector energético vuelven al radar', text:'La dinámica internacional mantiene foco sobre commodities, empresas del sector y cobertura.' }
     ];
+
     const cotizaciones = [
       { activo:'Dólar Oficial', tipo:'Dólar', precio:'$ 1.095', variacion:'+0.30%', estado:'up' },
       { activo:'Dólar MEP', tipo:'Dólar', precio:'$ 1.298', variacion:'+0.90%', estado:'up' },
@@ -214,6 +567,7 @@
       { activo:'Merval', tipo:'Global', precio:'2.315.420', variacion:'-0.22%', estado:'down' },
       { activo:'Oro', tipo:'Global', precio:'USD 2.145', variacion:'+0.18%', estado:'flat' }
     ];
+
     function buildTicker(id){
       document.getElementById(id).innerHTML = tickerData.map(item => `
         <div class="ticker-pill">
@@ -221,12 +575,20 @@
           <strong>${item.name}</strong>
           <span>${item.price}</span>
           <span class="${item.dir}">${item.dir === 'up' ? '▲' : '▼'} ${item.chg}</span>
-        </div>`).join('');
+        </div>
+      `).join('');
     }
+
     function buildNews(id){
-      document.getElementById(id).innerHTML = newsData.map((item, i) => `
-        <div class="news-item"><span>${String(i+1).padStart(2,'0')}</span>${item}</div>`).join('');
+      document.getElementById(id).innerHTML = newsData.map(item => `
+        <article class="news-card">
+          <span class="tag">${item.tag}</span>
+          <h3>${item.title}</h3>
+          <p>${item.text}</p>
+        </article>
+      `).join('');
     }
+
     document.getElementById('cotizacionesBody').innerHTML = cotizaciones.map(row => `
       <tr>
         <td>${row.activo}</td>
@@ -234,9 +596,13 @@
         <td>${row.precio}</td>
         <td>${row.variacion}</td>
         <td><span class="badge ${row.estado}">${row.estado === 'up' ? 'Subiendo' : row.estado === 'down' ? 'Bajando' : 'Estable'}</span></td>
-      </tr>`).join('');
-    buildTicker('tickerTrack'); buildTicker('tickerTrackClone');
-    buildNews('newsTrack'); buildNews('newsTrackClone');
+      </tr>
+    `).join('');
+
+    buildTicker('tickerTrack');
+    buildTicker('tickerTrackClone');
+    buildNews('newsTrack');
+    buildNews('newsTrackClone');
   </script>
 </body>
 </html>
