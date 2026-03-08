@@ -6,86 +6,134 @@
 <title>Market Advisor | Matías Dos Santos · Asesor Financiero</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--az:#0A2540;--azm:#0D3B6E;--azl:#1558A8;--azll:#2D7DD2;--do:#F59E0B;--dol:#FCD34D;--dod:#D97706;--ve:#10B981;--ro:#EF4444;--fo:#F8FAFC;--gr:#64748B;--bo:rgba(21,88,168,0.1);--sh:0 2px 20px rgba(10,37,64,0.06);--shg:0 20px 60px rgba(10,37,64,0.12);}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+:root{
+  --az:#0A2540;--azm:#0D3B6E;--azl:#1558A8;--azll:#2D7DD2;
+  --do:#F59E0B;--dol:#FCD34D;--dod:#D97706;
+  --ve:#10B981;--ro:#EF4444;
+  --fo:#F8FAFC;--gr:#64748B;--bo:rgba(21,88,168,0.09);
+  --sh:0 2px 24px rgba(10,37,64,0.07);
+  --shg:0 16px 48px rgba(10,37,64,0.13);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:"Inter",sans-serif;background:#fff;color:var(--az);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bo);box-shadow:0 2px 16px rgba(10,37,64,0.06);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bo);box-shadow:0 2px 16px rgba(10,37,64,0.05);}
 .nlogo{display:flex;align-items:center;gap:12px;}
-.nico{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--azl),var(--azll));display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:800;font-size:17px;color:#fff;box-shadow:0 4px 12px rgba(21,88,168,0.3);}
+.nico{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--azl),var(--azll));display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:800;font-size:17px;color:#fff;box-shadow:0 4px 12px rgba(21,88,168,0.28);}
 .nnombre{font-family:"Outfit",sans-serif;font-size:16px;font-weight:700;color:var(--az);}
 .ncnv{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--azl);background:rgba(21,88,168,0.08);border-radius:20px;padding:2px 8px;border:1px solid var(--bo);}
 .nlinks{display:flex;align-items:center;gap:4px;}
 .nlinks a{text-decoration:none;color:var(--gr);font-size:14px;font-weight:500;padding:7px 14px;border-radius:8px;transition:all .2s;}
 .nlinks a:hover{color:var(--azl);background:rgba(21,88,168,0.07);}
-.bcli{background:linear-gradient(135deg,var(--do),var(--dod))!important;color:var(--az)!important;font-weight:700!important;padding:9px 20px!important;border-radius:9px!important;box-shadow:0 4px 14px rgba(245,158,11,0.3)!important;}
+.bcli{background:linear-gradient(135deg,var(--do),var(--dod))!important;color:var(--az)!important;font-weight:700!important;padding:9px 20px!important;border-radius:9px!important;box-shadow:0 4px 14px rgba(245,158,11,0.28)!important;}
+
+/* TICKER */
 .ticker{position:fixed;top:64px;left:0;right:0;z-index:899;background:var(--az);padding:9px 0;overflow:hidden;border-bottom:2px solid var(--do);}
-.ttrack{display:flex;animation:scrollt 60s linear infinite;width:max-content;}
-.ti{display:flex;align-items:center;gap:7px;padding:0 22px;border-right:1px solid rgba(255,255,255,0.08);white-space:nowrap;}
-.tin{font-family:"JetBrains Mono",monospace;font-size:11px;color:rgba(255,255,255,0.45);}
-.tip{font-family:"JetBrains Mono",monospace;font-size:13px;color:#fff;font-weight:500;}
+.ttrack{display:flex;animation:scrollt 55s linear infinite;width:max-content;}
+.ti{display:flex;align-items:center;gap:7px;padding:0 24px;border-right:1px solid rgba(255,255,255,0.07);white-space:nowrap;}
+.tin{font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,0.4);}
+.tip{font-family:"JetBrains Mono",monospace;font-size:12px;color:#fff;font-weight:500;}
 .spacer{height:106px;}
-.hero{min-height:100vh;display:flex;align-items:center;padding:80px 48px;background:linear-gradient(150deg,var(--az) 0%,var(--azm) 60%,var(--azl) 100%);position:relative;overflow:hidden;}
-.hero::before{content:"";position:absolute;top:-20%;right:-8%;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(74,159,255,0.12) 0%,transparent 65%);pointer-events:none;}
-.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 48px;background:linear-gradient(150deg,var(--az) 0%,var(--azm) 55%,#1a4f8a 100%);position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;top:-20%;right:-8%;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(74,159,255,0.1) 0%,transparent 65%);pointer-events:none;}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;}
 .hc{position:relative;z-index:2;max-width:640px;}
-.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:7px 18px;font-family:"JetBrains Mono",monospace;font-size:11px;color:rgba(255,255,255,0.88);letter-spacing:0.07em;margin-bottom:28px;}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:7px 18px;font-family:"JetBrains Mono",monospace;font-size:11px;color:rgba(255,255,255,0.8);letter-spacing:0.06em;margin-bottom:28px;}
 .hbadge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ve);box-shadow:0 0 8px var(--ve);animation:blink 2s infinite;}
-.hero h1{font-family:"Outfit",sans-serif;font-size:clamp(38px,5vw,66px);font-weight:800;line-height:1.06;color:#fff;margin-bottom:20px;letter-spacing:-0.02em;}
-.hero h1 em{color:var(--dol);font-style:italic;font-weight:700;}
-.hdesc{font-size:17px;line-height:1.75;color:rgba(255,255,255,0.62);max-width:500px;margin-bottom:38px;}
+.hero h1{font-family:"Outfit",sans-serif;font-size:clamp(38px,5vw,64px);font-weight:800;line-height:1.06;color:#fff;margin-bottom:20px;letter-spacing:-0.02em;}
+.hero h1 em{color:var(--dol);font-style:normal;}
+.hdesc{font-size:17px;line-height:1.75;color:rgba(255,255,255,0.58);max-width:500px;margin-bottom:38px;}
 .hctas{display:flex;gap:14px;flex-wrap:wrap;}
-.btnp{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--do),var(--dod));color:var(--az);padding:14px 28px;border-radius:10px;font-family:"Inter",sans-serif;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:all .25s;box-shadow:0 8px 24px rgba(245,158,11,0.3);}
-.btnp:hover{transform:translateY(-2px);}
-.btng{display:inline-flex;align-items:center;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.82);padding:14px 28px;border-radius:10px;font-family:"Inter",sans-serif;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);cursor:pointer;transition:all .25s;}
-.btng:hover{background:rgba(255,255,255,0.17);}
+.btnp{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--do),var(--dod));color:var(--az);padding:14px 28px;border-radius:10px;font-family:"Inter",sans-serif;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:all .25s;box-shadow:0 8px 24px rgba(245,158,11,0.28);}
+.btnp:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,158,11,0.36);}
+.btng{display:inline-flex;align-items:center;background:rgba(255,255,255,0.09);color:rgba(255,255,255,0.78);padding:14px 28px;border-radius:10px;font-family:"Inter",sans-serif;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.16);cursor:pointer;transition:all .25s;}
+.btng:hover{background:rgba(255,255,255,0.15);}
+
+/* SECCIONES */
 .sec{padding:72px 48px;}.secalt{background:var(--fo);}
 .slbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;}
 .slbl.ve{color:var(--ve);}.slbl.az{color:var(--azl);}
 .stit{font-family:"Outfit",sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:800;color:var(--az);line-height:1.1;margin-bottom:10px;letter-spacing:-0.02em;}
 .ssub{font-size:15px;color:var(--gr);margin-bottom:32px;max-width:520px;}
-.ubar{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
-.udot{width:8px;height:8px;border-radius:50%;background:var(--ve);box-shadow:0 0 8px var(--ve);animation:blink 2s infinite;flex-shrink:0;}
-.utxt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--gr);}
+
+/* UPDATE BAR */
+.ubar{display:flex;align-items:center;gap:10px;margin-bottom:28px;max-width:1200px;}
+.udot{width:7px;height:7px;border-radius:50%;background:var(--ve);box-shadow:0 0 8px var(--ve);animation:blink 2s infinite;flex-shrink:0;}
+.utxt{font-family:"JetBrains Mono",monospace;font-size:11px;color:#94A3B8;}
 .uhora{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--azl);font-weight:500;}
-.btnref{margin-left:auto;background:none;border:1px solid var(--bo);border-radius:8px;padding:7px 16px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--azl);cursor:pointer;transition:all .2s;}
-.btnref:hover{background:rgba(21,88,168,0.07);}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;}
-.ccard{background:#fff;border:1px solid rgba(21,88,168,0.08);border-radius:24px;overflow:hidden;box-shadow:var(--sh);transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;}
-.ccard::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity .3s;}
-.ccard:hover{transform:translateY(-6px);box-shadow:var(--shg);border-color:rgba(21,88,168,0.14);}
-.ccard:hover::after{opacity:1;}
-.ccard.cd::after{background:linear-gradient(90deg,#1558A8,#2D7DD2);}
-.ccard.cc::after{background:linear-gradient(90deg,#F59E0B,#FCD34D);}
-.ccard.cb::after{background:linear-gradient(90deg,#10B981,#34D399);}
-.chead{padding:20px 22px 16px;border-bottom:1px solid rgba(21,88,168,0.06);display:flex;justify-content:space-between;align-items:center;}
-.chtit{font-family:"Outfit",sans-serif;font-size:17px;font-weight:700;color:#0F172A;letter-spacing:-0.01em;}
-.chbadge{font-family:"JetBrains Mono",monospace;font-size:10px;padding:4px 12px;border-radius:100px;font-weight:600;letter-spacing:0.05em;}
-.cbars{color:#1558A8;background:rgba(21,88,168,0.08);border:1px solid rgba(21,88,168,0.15);}
-.cbcrypto{color:#D97706;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);}
-.cbglobal{color:#059669;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);}
-.drow{display:flex;align-items:center;padding:13px 22px;border-bottom:1px solid rgba(21,88,168,0.05);transition:all .2s;}
-.drow:last-child{border-bottom:none;}
-.drow:hover{background:linear-gradient(90deg,rgba(21,88,168,0.03),transparent);}
-.dnom{flex:1;font-size:13px;color:#475569;font-weight:500;}
-.dc{font-family:"JetBrains Mono",monospace;font-size:11px;color:#94A3B8;width:80px;text-align:right;}
-.dv{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;color:#0F172A;width:90px;text-align:right;}
-.crow{display:flex;align-items:center;padding:12px 22px;border-bottom:1px solid rgba(21,88,168,0.05);transition:all .2s;}
-.crow:last-child{border-bottom:none;}
-.crow:hover{background:linear-gradient(90deg,rgba(245,158,11,0.03),transparent);}
-.cico{width:36px;height:36px;border-radius:50%;overflow:hidden;margin-right:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#F8FAFC;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.cico img{width:28px;height:28px;border-radius:50%;object-fit:cover;}
-.cinfo{flex:1;}
-.cnom{font-size:13px;font-weight:600;color:#1E293B;letter-spacing:-0.01em;}
-.csym{font-family:"JetBrains Mono",monospace;font-size:10px;color:#94A3B8;margin-top:1px;letter-spacing:0.05em;}
-.cprecio{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;color:#0F172A;text-align:right;}
-.cup{color:#059669;background:rgba(16,185,129,0.1);font-family:"JetBrains Mono",monospace;font-size:10px;padding:3px 8px;border-radius:100px;margin-left:8px;font-weight:600;}
-.cdn{color:#DC2626;background:rgba(239,68,68,0.08);font-family:"JetBrains Mono",monospace;font-size:10px;padding:3px 8px;border-radius:100px;margin-left:8px;font-weight:600;}
-.brow{display:flex;align-items:center;padding:13px 22px;border-bottom:1px solid rgba(21,88,168,0.05);transition:all .2s;}
-.brow:last-child{border-bottom:none;}
-.brow:hover{background:linear-gradient(90deg,rgba(16,185,129,0.03),transparent);}
-.bflag{width:24px;height:18px;border-radius:3px;object-fit:cover;margin-right:12px;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
-.bnom{flex:1;font-size:13px;font-weight:500;color:#475569;}
-.bprecio{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;color:#0F172A;text-align:right;}
+.btnref{margin-left:auto;background:none;border:1px solid var(--bo);border-radius:8px;padding:6px 14px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--azl);cursor:pointer;transition:all .2s;letter-spacing:0.03em;}
+.btnref:hover{background:rgba(21,88,168,0.06);}
+
+/* ============================================================
+   PANEL COTIZACIONES — diseño nuevo
+   ============================================================ */
+.mwrap{max-width:1200px;}
+
+/* TABS */
+.mtabs{display:flex;gap:8px;margin-bottom:20px;}
+.mtab{display:flex;align-items:center;gap:9px;padding:11px 20px;background:#fff;border:1px solid var(--bo);border-radius:12px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;color:#94A3B8;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.mtab:hover{color:#475569;border-color:rgba(21,88,168,0.18);}
+.mtab.act{color:#fff;border-color:transparent;}
+.mtab.t-az.act{background:linear-gradient(135deg,var(--azl),var(--azll));box-shadow:0 4px 16px rgba(21,88,168,0.28);}
+.mtab.t-do.act{background:linear-gradient(135deg,var(--dod),var(--do));box-shadow:0 4px 16px rgba(245,158,11,0.28);color:var(--az);}
+.mtab.t-ve.act{background:linear-gradient(135deg,#059669,var(--ve));box-shadow:0 4px 16px rgba(16,185,129,0.28);}
+.ticon{font-size:15px;}
+
+.mpane{display:none;}.mpane.act{display:block;}
+
+/* PANEL DOLAR — grilla 2 cols */
+.dpanel{background:#fff;border:1px solid var(--bo);border-radius:20px;overflow:hidden;box-shadow:var(--sh);}
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);}
+.ditem{padding:22px 28px;border-right:1px solid rgba(21,88,168,0.06);border-bottom:1px solid rgba(21,88,168,0.06);position:relative;transition:background .2s;}
+.ditem:hover{background:rgba(21,88,168,0.018);}
+.ditem:nth-child(2n){border-right:none;}
+.ditem:nth-last-child(-n+2){border-bottom:none;}
+.ditem-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;margin-bottom:10px;}
+.ditem-venta{font-family:"JetBrains Mono",monospace;font-size:28px;font-weight:700;color:#0F172A;letter-spacing:-0.01em;margin-bottom:4px;}
+.ditem-compra{font-size:12px;color:#94A3B8;font-family:"JetBrains Mono",monospace;}
+.ditem-compra strong{color:#64748B;}
+.ditem-dot{position:absolute;top:18px;right:20px;width:6px;height:6px;border-radius:50%;background:var(--ve);box-shadow:0 0 6px var(--ve);}
+
+/* PANEL CRYPTO — lista */
+.cpanel{background:#fff;border:1px solid var(--bo);border-radius:20px;overflow:hidden;box-shadow:var(--sh);}
+.cgrid2{display:grid;grid-template-columns:1fr 1fr;}
+.crow2{display:flex;align-items:center;gap:14px;padding:16px 24px;border-bottom:1px solid rgba(21,88,168,0.05);border-right:1px solid rgba(21,88,168,0.05);transition:background .2s;}
+.crow2:hover{background:rgba(245,158,11,0.025);}
+.crow2:nth-child(2n){border-right:none;}
+.crow2:nth-last-child(-n+2){border-bottom:none;}
+.cico3{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#F8FAFC;border:1px solid rgba(0,0,0,0.05);}
+.cico3 img{width:32px;height:32px;border-radius:50%;object-fit:cover;}
+.cdata{flex:1;}
+.cname3{font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#1E293B;}
+.csym3{font-family:"JetBrains Mono",monospace;font-size:10px;color:#94A3B8;margin-top:1px;}
+.cprice3{text-align:right;}
+.cval3{font-family:"JetBrains Mono",monospace;font-size:16px;font-weight:700;color:#0F172A;display:block;}
+.cchg3{font-family:"JetBrains Mono",monospace;font-size:11px;padding:2px 8px;border-radius:100px;font-weight:600;display:inline-block;margin-top:4px;}
+.cup3{color:#059669;background:rgba(16,185,129,0.1);}
+.cdn3{color:#DC2626;background:rgba(239,68,68,0.08);}
+
+/* PANEL BOLSAS — lista 2 cols */
+.bpanel{background:#fff;border:1px solid var(--bo);border-radius:20px;overflow:hidden;box-shadow:var(--sh);}
+.bgrid2{display:grid;grid-template-columns:1fr 1fr;}
+.brow2{display:flex;align-items:center;gap:14px;padding:18px 24px;border-bottom:1px solid rgba(21,88,168,0.05);border-right:1px solid rgba(21,88,168,0.05);transition:background .2s;}
+.brow2:hover{background:rgba(16,185,129,0.025);}
+.brow2:nth-child(2n){border-right:none;}
+.brow2:nth-last-child(-n+2){border-bottom:none;}
+.bflag2{width:28px;height:20px;border-radius:4px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.12);flex-shrink:0;}
+.bdata{flex:1;}
+.bname2{font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#1E293B;}
+.bidx2{font-family:"JetBrains Mono",monospace;font-size:10px;color:#94A3B8;margin-top:1px;}
+.bprice2{text-align:right;}
+.bval2{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;color:#0F172A;display:block;}
+.bchg2{font-family:"JetBrains Mono",monospace;font-size:11px;padding:2px 8px;border-radius:100px;font-weight:600;display:inline-block;margin-top:4px;}
+.bup2{color:#059669;background:rgba(16,185,129,0.1);}
+.bdn2{color:#DC2626;background:rgba(239,68,68,0.08);}
+
+/* NOTICIAS */
 .ngrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;max-width:1200px;}
 .ncard{background:#fff;border:1px solid var(--bo);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .3s;box-shadow:var(--sh);}
 .ncard:hover{transform:translateY(-3px);box-shadow:var(--shg);}
@@ -98,6 +146,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;ali
 .ncard.ft .nhl{font-size:20px;}
 .nexc{font-size:13px;color:var(--gr);line-height:1.6;margin-bottom:12px;}
 .nmeta{font-family:"JetBrains Mono",monospace;font-size:11px;color:#A8BDD8;display:flex;gap:12px;}
+
+/* BIBLIOTECA */
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;max-width:1200px;}
 .lcard{background:#fff;border:1px solid var(--bo);border-radius:14px;padding:22px 18px;cursor:pointer;transition:all .3s;box-shadow:var(--sh);position:relative;overflow:hidden;}
 .lcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--do),var(--dol));opacity:0;transition:opacity .3s;}
@@ -107,6 +157,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;ali
 .ltit{font-family:"Outfit",sans-serif;font-size:14px;font-weight:600;color:var(--az);line-height:1.35;margin-bottom:4px;}
 .lautor{font-size:12px;color:var(--gr);margin-bottom:14px;}
 .ltag{display:inline-flex;align-items:center;gap:4px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--dod);background:rgba(245,158,11,0.1);border-radius:4px;padding:3px 8px;border:1px solid rgba(245,158,11,0.2);}
+
+/* HERRAMIENTAS */
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;max-width:1200px;}
 .tcard{background:#fff;border:1px solid var(--bo);border-radius:14px;padding:20px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .3s;box-shadow:var(--sh);}
 .tcard:hover{border-color:rgba(245,158,11,0.35);box-shadow:var(--shg);}
@@ -116,6 +168,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;ali
 .tdesc{font-size:12px;color:var(--gr);line-height:1.5;}
 .tdl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--dod);padding:7px 12px;border:1px solid rgba(245,158,11,0.3);border-radius:8px;white-space:nowrap;flex-shrink:0;transition:all .2s;}
 .tcard:hover .tdl{background:rgba(245,158,11,0.1);}
+
+/* CONTACTO */
 .cogrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:1100px;align-items:start;}
 .coinfo h3{font-family:"Outfit",sans-serif;font-size:26px;font-weight:700;color:var(--az);margin-bottom:12px;letter-spacing:-0.01em;}
 .coinfo p{color:var(--gr);font-size:15px;line-height:1.7;margin-bottom:28px;}
@@ -130,17 +184,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;ali
 .fg input,.fg textarea,.fg select{background:#fff;border:1px solid var(--bo);border-radius:9px;padding:12px 15px;color:var(--az);font-family:"Inter",sans-serif;font-size:14px;outline:none;width:100%;transition:all .2s;}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(245,158,11,0.5);box-shadow:0 0 0 3px rgba(245,158,11,0.08);}
 .fg textarea{resize:vertical;min-height:96px;}
-.btnenv{background:linear-gradient(135deg,var(--do),var(--dod));color:var(--az);border:none;border-radius:10px;padding:14px 28px;font-family:"Inter",sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 6px 20px rgba(245,158,11,0.28);}
+.btnenv{background:linear-gradient(135deg,var(--do),var(--dod));color:var(--az);border:none;border-radius:10px;padding:14px 28px;font-family:"Inter",sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 6px 20px rgba(245,158,11,0.26);}
 .btnenv:hover{transform:translateY(-2px);}
+
+/* FOOTER */
 footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-.fbrand{font-family:"Outfit",sans-serif;font-size:16px;font-weight:600;color:rgba(255,255,255,0.68);}
-.fcnv{font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,0.32);margin-top:3px;}
-.flegal{font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,0.28);text-align:right;line-height:1.7;}
+.fbrand{font-family:"Outfit",sans-serif;font-size:16px;font-weight:600;color:rgba(255,255,255,0.65);}
+.fcnv{font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,0.3);margin-top:3px;}
+.flegal{font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,0.26);text-align:right;line-height:1.7;}
+
+/* MODAL */
 .movl{position:fixed;inset:0;z-index:9999;background:rgba(10,37,64,0.72);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
 .movl.abierto{opacity:1;pointer-events:all;}
-.mcaja{background:#fff;border-radius:20px;padding:40px 36px;width:390px;max-width:92vw;box-shadow:0 32px 80px rgba(10,37,64,0.22);transform:translateY(14px);transition:transform .3s;position:relative;}
+.mcaja{background:#fff;border-radius:20px;padding:40px 36px;width:390px;max-width:92vw;box-shadow:0 32px 80px rgba(10,37,64,0.2);transform:translateY(14px);transition:transform .3s;position:relative;}
 .movl.abierto .mcaja{transform:translateY(0);}
-.mcerrar{position:absolute;top:14px;right:14px;background:var(--fo);border:none;color:var(--gr);width:30px;height:30px;border-radius:8px;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.mcerrar{position:absolute;top:14px;right:14px;background:var(--fo);border:none;color:var(--gr);width:30px;height:30px;border-radius:8px;font-size:15px;cursor:pointer;}
 .mlogo{width:50px;height:50px;background:linear-gradient(135deg,var(--azl),var(--azll));border-radius:13px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:800;font-size:22px;color:#fff;}
 .mcaja h2{font-family:"Outfit",sans-serif;font-size:22px;font-weight:700;text-align:center;color:var(--az);margin-bottom:5px;}
 .mcaja>p{font-size:13px;color:var(--gr);text-align:center;margin-bottom:24px;}
@@ -148,7 +206,9 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
 .mform input{background:var(--fo);border:1px solid var(--bo);border-radius:10px;padding:13px 15px;color:var(--az);font-family:"Inter",sans-serif;font-size:14px;outline:none;width:100%;transition:all .2s;}
 .mform input:focus{border-color:rgba(245,158,11,0.5);box-shadow:0 0 0 3px rgba(245,158,11,0.08);}
 .mbtn{background:linear-gradient(135deg,var(--do),var(--dod));color:var(--az);border:none;border-radius:10px;padding:14px;width:100%;font-family:"Inter",sans-serif;font-size:15px;font-weight:700;cursor:pointer;}
-.mnota{font-size:11px;color:#A8BDD8;text-align:center;margin-top:2px;}
+.mnota{font-size:11px;color:#A8BDD8;text-align:center;margin-top:4px;}
+
+/* AREA CLIENTES */
 .clihead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;}
 .clihead h2{font-family:"Outfit",sans-serif;font-size:30px;font-weight:800;color:var(--az);}
 .clihead p{color:var(--gr);font-size:13px;margin-top:4px;}
@@ -160,14 +220,26 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
 .clii{font-size:28px;margin-bottom:14px;}
 .clicard h3{font-family:"Outfit",sans-serif;font-size:16px;font-weight:600;color:var(--az);margin-bottom:7px;}
 .clicard p{font-size:13px;color:var(--gr);line-height:1.6;}
+
+/* ANIMATIONS */
 @keyframes scrollt{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 .fi{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
 .fi.visible{opacity:1;transform:translateY(0);}
-@media(max-width:900px){nav{padding:0 18px;}.nlinks a:not(.bcli){display:none;}.sec,.secalt{padding:52px 18px;}.hero{padding:72px 18px 52px;}.cgrid,.ngrid,.cogrid,.cligrid{grid-template-columns:1fr;}.ncard.ft{grid-row:auto;}footer{flex-direction:column;text-align:center;}.flegal{text-align:center;}}
+
+@media(max-width:900px){
+  nav{padding:0 18px;}.nlinks a:not(.bcli){display:none;}
+  .sec,.secalt{padding:52px 18px;}.hero{padding:72px 18px 52px;}
+  .dgrid,.cgrid2,.bgrid2,.ngrid,.cogrid,.cligrid{grid-template-columns:1fr;}
+  .ditem:nth-child(2n),.crow2:nth-child(2n),.brow2:nth-child(2n){border-right:1px solid rgba(21,88,168,0.05);}
+  .ncard.ft{grid-row:auto;}
+  footer{flex-direction:column;text-align:center;}.flegal{text-align:center;}
+}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
   <div class="nlogo">
     <div class="nico">M</div>
@@ -186,16 +258,18 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   </div>
 </nav>
 
+<!-- TICKER -->
 <div class="ticker">
   <div class="ttrack" id="ttrack">
-    <div class="ti"><span class="tin">USD BLUE</span><span class="tip">cargando...</span></div>
-    <div class="ti"><span class="tin">BTC</span><span class="tip">cargando...</span></div>
-    <div class="ti"><span class="tin">ETH</span><span class="tip">cargando...</span></div>
-    <div class="ti"><span class="tin">MERVAL</span><span class="tip">cargando...</span></div>
+    <div class="ti"><span class="tin">USD BLUE</span><span class="tip">—</span></div>
+    <div class="ti"><span class="tin">BTC</span><span class="tip">—</span></div>
+    <div class="ti"><span class="tin">ETH</span><span class="tip">—</span></div>
+    <div class="ti"><span class="tin">SOL</span><span class="tip">—</span></div>
   </div>
 </div>
 <div class="spacer"></div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hgrid"></div>
   <div class="hc">
@@ -209,73 +283,69 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   </div>
 </section>
 
+<!-- COTIZADORES -->
 <div class="sec secalt" id="cotizadores">
   <div class="slbl ve">● En vivo</div>
   <div class="stit">Mercados</div>
-  <p class="ssub">Dólar en tiempo real · Cripto y bolsas</p>
+  <p class="ssub">Dólar · Cripto · Bolsas — actualizados en tiempo real</p>
   <div class="ubar">
     <div class="udot"></div>
     <span class="utxt">Última actualización:</span>
-    <span class="uhora" id="uhora">conectando...</span>
+    <span class="uhora" id="uhora">—</span>
     <button class="btnref" id="btnref" onclick="actualizarTodo()">↻ Actualizar</button>
   </div>
-  <div class="cgrid">
-    <div class="ccard cd">
-      <div class="chead"><span class="chtit">Dólar</span><span class="chbadge cbars">ARS</span></div>
-      <div id="boxdolar"><div style="padding:20px 22px;color:var(--gr);font-size:13px;font-family:'JetBrains Mono',monospace;">Conectando...</div></div>
+
+  <div class="mwrap">
+    <!-- PESTAÑAS -->
+    <div class="mtabs">
+      <button class="mtab t-az act" id="tab-dolar" onclick="switchTab('dolar')">
+        <span class="ticon">💵</span> Dólar ARS
+      </button>
+      <button class="mtab t-do" id="tab-crypto" onclick="switchTab('crypto')">
+        <span class="ticon">₿</span> Criptomonedas
+      </button>
+      <button class="mtab t-ve" id="tab-bolsas" onclick="switchTab('bolsas')">
+        <span class="ticon">🌐</span> Bolsas del Mundo
+      </button>
     </div>
-    <div class="ccard cc">
-      <div class="chead"><span class="chtit">Criptomonedas</span><span class="chbadge cbcrypto">CRYPTO</span></div>
-      <div id="boxcrypto"><div style="padding:20px 22px;color:var(--gr);font-size:13px;font-family:'JetBrains Mono',monospace;">Conectando...</div></div>
+
+    <!-- PANEL DÓLAR -->
+    <div class="mpane act" id="pane-dolar">
+      <div class="dpanel">
+        <div class="dgrid" id="boxdolar">
+          <div class="ditem"><div class="ditem-label">Cargando...</div></div>
+        </div>
+      </div>
     </div>
-    <div class="ccard cb" style="overflow:hidden;">
-      <div class="chead"><span class="chtit">Bolsas del Mundo</span><span class="chbadge cbglobal">GLOBAL</span></div>
-      <div style="height:430px;overflow:hidden;">
-        <div class="tradingview-widget-container" style="height:430px;width:100%;">
-          <div class="tradingview-widget-container__widget" style="height:430px;width:100%;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-          {
-            "colorTheme": "light",
-            "dateRange": "1D",
-            "showChart": false,
-            "locale": "es",
-            "width": "100%",
-            "height": "430",
-            "largeChartUrl": "",
-            "isTransparent": true,
-            "showSymbolLogo": true,
-            "showFloatingTooltip": false,
-            "plotLineColorGrowing": "#10B981",
-            "plotLineColorFalling": "#EF4444",
-            "gridLineColor": "rgba(21,88,168,0.06)",
-            "scaleFontColor": "rgba(100,116,139,0.8)",
-            "belowLineFillColorGrowing": "rgba(16,185,129,0.06)",
-            "belowLineFillColorFalling": "rgba(239,68,68,0.06)",
-            "symbolActiveColor": "rgba(21,88,168,0.06)",
-            "tabs": [
-              {
-                "title": "Índices",
-                "symbols": [
-                  {"s": "BCBA:IMV", "d": "Merval"},
-                  {"s": "SP:SPX", "d": "S&P 500"},
-                  {"s": "NASDAQ:NDX", "d": "NASDAQ 100"},
-                  {"s": "DJ:DJI", "d": "Dow Jones"},
-                  {"s": "XETR:DAX", "d": "DAX"},
-                  {"s": "LSE:UKX", "d": "FTSE 100"},
-                  {"s": "TVC:NI225", "d": "Nikkei 225"},
-                  {"s": "SSE:000001", "d": "Shanghai"}
-                ],
-                "originalTitle": "Indices"
-              }
-            ]
-          }
-          </script>
+
+    <!-- PANEL CRYPTO -->
+    <div class="mpane" id="pane-crypto">
+      <div class="cpanel">
+        <div class="cgrid2" id="boxcrypto">
+          <div class="crow2" style="grid-column:1/-1;padding:32px;color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:13px;">Conectando...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL BOLSAS -->
+    <div class="mpane" id="pane-bolsas">
+      <div class="bpanel">
+        <div class="bgrid2" id="boxbolsas">
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/ar.png" alt="AR"><div class="bdata"><div class="bname2">Merval</div><div class="bidx2">BCBA · ARS</div></div><div class="bprice2"><span class="bval2" id="bv-merval">—</span><span class="bchg2" id="bc-merval"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/us.png" alt="US"><div class="bdata"><div class="bname2">S&amp;P 500</div><div class="bidx2">NYSE · USD</div></div><div class="bprice2"><span class="bval2" id="bv-sp500">—</span><span class="bchg2" id="bc-sp500"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/us.png" alt="US"><div class="bdata"><div class="bname2">NASDAQ 100</div><div class="bidx2">NASDAQ · USD</div></div><div class="bprice2"><span class="bval2" id="bv-nasdaq">—</span><span class="bchg2" id="bc-nasdaq"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/us.png" alt="US"><div class="bdata"><div class="bname2">Dow Jones</div><div class="bidx2">NYSE · USD</div></div><div class="bprice2"><span class="bval2" id="bv-dj">—</span><span class="bchg2" id="bc-dj"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/de.png" alt="DE"><div class="bdata"><div class="bname2">DAX</div><div class="bidx2">Frankfurt · EUR</div></div><div class="bprice2"><span class="bval2" id="bv-dax">—</span><span class="bchg2" id="bc-dax"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/gb.png" alt="GB"><div class="bdata"><div class="bname2">FTSE 100</div><div class="bidx2">Londres · GBP</div></div><div class="bprice2"><span class="bval2" id="bv-ftse">—</span><span class="bchg2" id="bc-ftse"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/jp.png" alt="JP"><div class="bdata"><div class="bname2">Nikkei 225</div><div class="bidx2">Tokio · JPY</div></div><div class="bprice2"><span class="bval2" id="bv-nikkei">—</span><span class="bchg2" id="bc-nikkei"></span></div></div>
+          <div class="brow2"><img class="bflag2" src="https://flagcdn.com/24x18/cn.png" alt="CN"><div class="bdata"><div class="bname2">Shanghai</div><div class="bidx2">SSE · CNY</div></div><div class="bprice2"><span class="bval2" id="bv-shan">—</span><span class="bchg2" id="bc-shan"></span></div></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- NOTICIAS -->
 <section class="sec" id="noticias">
   <div class="slbl az fi">— Novedades</div>
   <div class="stit fi">Mercado &amp; Economía</div>
@@ -284,10 +354,11 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
     <div class="ncard ft"><div class="nimg">📈</div><div class="nbody"><div class="ntag">ANÁLISIS</div><div class="nhl">El Merval en máximos: ¿es momento de tomar ganancias o seguir posicionado?</div><div class="nexc">El índice líder acumula una suba de 140% en dólares en lo que va del año. Analizamos los sectores con mayor momentum y los riesgos a monitorear.</div><div class="nmeta"><span>Hoy · 14:30</span><span>5 min lectura</span></div></div></div>
     <div class="ncard"><div class="nimg" style="height:130px;font-size:30px;">🏛</div><div class="nbody"><div class="ntag">BONOS</div><div class="nhl">GD30 y AL30: oportunidad en soberanos en dólares</div><div class="nmeta"><span>Ayer · 10:15</span></div></div></div>
     <div class="ncard"><div class="nimg" style="height:130px;font-size:30px;">💵</div><div class="nbody"><div class="ntag">FX</div><div class="nhl">Brecha cambiaria en mínimos: impacto en CEDEARs</div><div class="nmeta"><span>Hace 2 días</span></div></div></div>
-    <div class="ncard"><div class="nimg" style="height:130px;font-size:30px;">⛺</div><div class="nbody"><div class="ntag">ENERGÍA</div><div class="nhl">YPF y Pampa: fundamentos para el largo plazo</div><div class="nmeta"><span>Hace 3 días</span></div></div></div>
+    <div class="ncard"><div class="nimg" style="height:130px;font-size:30px;">⛽</div><div class="nbody"><div class="ntag">ENERGÍA</div><div class="nhl">YPF y Pampa: fundamentos para el largo plazo</div><div class="nmeta"><span>Hace 3 días</span></div></div></div>
   </div>
 </section>
 
+<!-- BIBLIOTECA -->
 <section class="sec secalt" id="biblioteca">
   <div class="slbl az fi">— Recursos</div>
   <div class="stit fi">Biblioteca de Inversiones</div>
@@ -302,6 +373,7 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   </div>
 </section>
 
+<!-- HERRAMIENTAS -->
 <section class="sec" id="herramientas">
   <div class="slbl az fi">— Descargables</div>
   <div class="stit fi">Herramientas &amp; Excel</div>
@@ -316,6 +388,7 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   </div>
 </section>
 
+<!-- CONTACTO -->
 <section class="sec secalt" id="contacto">
   <div class="slbl az fi">— Contacto</div>
   <div class="stit fi">Hablemos</div>
@@ -325,7 +398,7 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
       <p>Matías Dos Santos · Asesor Financiero registrado CNV N°2349. Podés contactarme por cualquiera de estos canales.</p>
       <div class="colinks">
         <a href="https://wa.me/5493764000000" class="colink" target="_blank"><div class="coico iwa">💬</div><div><strong>WhatsApp</strong><br><span style="font-size:12px;color:var(--gr);font-weight:400">+54 9 376 400-0000</span></div></a>
-        <a href="/cdn-cgi/l/email-protection#ee87808881ae838f9c858b9a8f8a98879d819cc08d8183c08f9c" class="colink"><div class="coico ima">✉</div><div><strong>Email</strong><br><span style="font-size:12px;color:var(--gr);font-weight:400"><span class="__cf_email__" data-cfemail="1b72757d745b767a69707e6f7a7f6d7268746935787476357a69">[email&#160;protected]</span></span></div></a>
+        <a href="mailto:info@marketadvisor.com.ar" class="colink"><div class="coico ima">✉</div><div><strong>Email</strong><br><span style="font-size:12px;color:var(--gr);font-weight:400">info@marketadvisor.com.ar</span></div></a>
         <a href="#" class="colink"><div class="coico ili">💼</div><div><strong>LinkedIn</strong><br><span style="font-size:12px;color:var(--gr);font-weight:400">Ver perfil profesional</span></div></a>
       </div>
     </div>
@@ -339,6 +412,7 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   </div>
 </section>
 
+<!-- AREA CLIENTES (oculta) -->
 <section id="areacli" style="display:none;padding:72px 48px;background:var(--fo);border-top:3px solid var(--do);">
   <div class="clihead">
     <div><h2>Bienvenido al portal exclusivo</h2><p>Acceso privado · Market Advisor CNV N°2349</p></div>
@@ -349,11 +423,12 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
     <div class="clicard"><div class="clii">📋</div><h3>Informes Exclusivos</h3><p>Reportes mensuales preparados para tu perfil de inversor.</p></div>
     <div class="clicard"><div class="clii">🔔</div><h3>Alertas de Mercado</h3><p>Notificaciones sobre oportunidades que te afectan.</p></div>
     <div class="clicard"><div class="clii">📁</div><h3>Mis Documentos</h3><p>Contratos y documentación de tu operatoria.</p></div>
-    <div class="clicard"><div class="clii">🗃</div><h3>Agenda Reuniones</h3><p>Coordiná la próxima videollamada de revisión.</p></div>
+    <div class="clicard"><div class="clii">🗓</div><h3>Agenda Reuniones</h3><p>Coordiná la próxima videollamada de revisión.</p></div>
     <div class="clicard"><div class="clii">💬</div><h3>Mensajes Directos</h3><p>Canal privado de comunicación directa con tu asesor.</p></div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div>
     <div class="fbrand">Market Advisor · marketadvisor.com.ar</div>
@@ -362,6 +437,7 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
   <div class="flegal">Este sitio no constituye oferta pública de valores.<br>Consulte siempre a su asesor antes de invertir.</div>
 </footer>
 
+<!-- MODAL LOGIN -->
 <div class="movl" id="modal">
   <div class="mcaja">
     <button class="mcerrar" onclick="cerrarModal()">&times;</button>
@@ -376,73 +452,168 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
     </div>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* MODAL */
+
+<script>
+/* ---- MODAL ---- */
 function abrirModal(){document.getElementById('modal').classList.add('abierto');}
 function cerrarModal(){document.getElementById('modal').classList.remove('abierto');}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 function iniciarSesion(){
   var e=document.getElementById('memail').value,p=document.getElementById('mpass').value;
   if(e&&p){cerrarModal();var a=document.getElementById('areacli');a.style.display='block';setTimeout(function(){a.scrollIntoView({behavior:'smooth'});},100);}
-  else{document.getElementById('memail').style.borderColor='rgba(239,68,68,0.6)';setTimeout(function(){document.getElementById('memail').style.borderColor='';},1500);}
+  else{document.getElementById('memail').style.borderColor='rgba(239,68,68,0.5)';}
 }
 function cerrarSesion(){document.getElementById('areacli').style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
 document.getElementById('mpass').addEventListener('keydown',function(e){if(e.key==='Enter')iniciarSesion();});
 
-/* HELPERS */
-function fARS(n){if(!n&&n!==0)return'-';return Number(n).toLocaleString('es-AR',{minimumFractionDigits:0,maximumFractionDigits:0});}
-function fUSD(p){if(!p&&p!==0)return'-';if(p>=1000)return Number(p).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});if(p>=1)return Number(p).toFixed(2);return Number(p).toFixed(4);}
-function chg(c){if(c===null||c===undefined)return'';var up=c>=0;return '<span class="'+(up?'cup':'cdn')+'">'+(up?'▲ +':'▼ ')+Math.abs(c).toFixed(2)+'%</span>';}
+/* ---- TABS ---- */
+function switchTab(tab){
+  ['dolar','crypto','bolsas'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.remove('act');
+    document.getElementById('pane-'+t).classList.remove('act');
+  });
+  document.getElementById('tab-'+tab).classList.add('act');
+  document.getElementById('pane-'+tab).classList.add('act');
+}
 
-var LOGO={BTC:'https://assets.coingecko.com/coins/images/1/small/bitcoin.png',ETH:'https://assets.coingecko.com/coins/images/279/small/ethereum.png',SOL:'https://assets.coingecko.com/coins/images/4128/small/solana.png',XRP:'https://assets.coingecko.com/coins/images/44/small/xrp-symbol-white-128.png',ADA:'https://assets.coingecko.com/coins/images/975/small/cardano.png',BNB:'https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png'};
+/* ---- HELPERS ---- */
+function fN(n,dec){if(!n&&n!==0)return'—';return Number(n).toLocaleString('es-AR',{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0});}
+function fUSD(p){if(!p&&p!==0)return'—';if(p>=1000)return'$'+Number(p).toLocaleString('en-US',{maximumFractionDigits:0});if(p>=1)return'$'+Number(p).toFixed(2);return'$'+Number(p).toFixed(4);}
+function chgSpan(v,cls){if(v===null||v===undefined||isNaN(v))return'';var up=v>=0;return'<span class="'+(up?cls+' bup2':cls+' bdn2')+'">'+(up?'▲ +':'▼ ')+Math.abs(v).toFixed(2)+'%</span>';}
+
 var SD=[],SC=[];
 
-function renderDolar(arr){return arr.map(function(d){return '<div class="drow"><span class="dnom">'+d.nom+'</span>'+(d.c?'<span class="dc">C $'+fARS(d.c)+'</span>':'<span class="dc"></span>')+'<span class="dv">$'+fARS(d.v)+'</span>'+chg(d.ch)+'</div>';}).join('');}
-function renderCrypto(arr){return arr.map(function(c){var img=LOGO[c.sym]?'<img src="'+LOGO[c.sym]+'" width="28" height="28" style="border-radius:50%;object-fit:cover;" onerror="this.style.display=\'none\'">':'';return '<div class="crow"><div class="cico">'+img+'</div><div class="cinfo"><div class="cnom">'+c.name+'</div><div class="csym">'+c.sym+'</div></div><div style="display:flex;align-items:center;justify-content:flex-end;"><span class="cprecio">$'+fUSD(c.p)+'</span>'+chg(c.ch)+'</div></div>';}).join('');}
-
-function setTicker(){var t='';SD.forEach(function(d){if(d.v)t+='<div class="ti"><span class="tin">'+d.nom.replace('Dólar ','USD ').toUpperCase()+'</span><span class="tip">$'+fARS(d.v)+'</span></div>';});SC.forEach(function(c){if(c.p)t+='<div class="ti"><span class="tin">'+c.sym+'</span><span class="tip">$'+fUSD(c.p)+'</span></div>';});if(t)document.getElementById('ttrack').innerHTML=t+t;}
+/* ---- TICKER ---- */
+function setTicker(){
+  var t='';
+  SD.forEach(function(d){if(d.v)t+='<div class="ti"><span class="tin">'+d.nom.replace('Dólar ','USD ').toUpperCase()+'</span><span class="tip">$'+fN(d.v)+'</span></div>';});
+  SC.forEach(function(c){if(c.p)t+='<div class="ti"><span class="tin">'+c.sym+'</span><span class="tip">'+fUSD(c.p)+'</span></div>';});
+  if(t)document.getElementById('ttrack').innerHTML=t+t;
+}
 function setHora(){document.getElementById('uhora').textContent=new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
 
-/* DOLAR */
+/* ---- DÓLAR ---- */
 function fetchDolar(){
   fetch('https://dolarapi.com/v1/dolares')
     .then(function(r){return r.json();})
     .then(function(data){
       var m={oficial:'Dólar Oficial',blue:'Dólar Blue',bolsa:'Dólar MEP',contadoconliqui:'Dólar CCL',tarjeta:'Dólar Tarjeta',mayorista:'Dólar Mayorista'};
-      var o=['oficial','blue','bolsa','contadoconliqui','tarjeta','mayorista'];
+      var orden=['oficial','blue','bolsa','contadoconliqui','tarjeta','mayorista'];
       var arr=[];
-      o.forEach(function(k){var d=data.find(function(x){return x.casa===k;});if(d)arr.push({nom:m[k],c:d.compra,v:d.venta,ch:null});});
-      if(arr.length){SD=arr;document.getElementById('boxdolar').innerHTML=renderDolar(arr);setTicker();setHora();}
-    })
-    .catch(function(){document.getElementById('boxdolar').innerHTML='<div style="padding:16px 22px;font-size:13px;color:var(--ro);">⚠ No se pudo cargar el dólar.</div>';});
+      orden.forEach(function(k){var d=data.find(function(x){return x.casa===k;});if(d)arr.push({nom:m[k],c:d.compra,v:d.venta});});
+      if(!arr.length)return;
+      SD=arr;
+      var html='';
+      arr.forEach(function(d){
+        html+='<div class="ditem"><div class="ditem-dot"></div>';
+        html+='<div class="ditem-label">'+d.nom.replace('Dólar ','')+'</div>';
+        html+='<div class="ditem-venta">$'+fN(d.v)+'</div>';
+        html+='<div class="ditem-compra">Compra <strong>$'+fN(d.c)+'</strong></div>';
+        html+='</div>';
+      });
+      document.getElementById('boxdolar').innerHTML=html;
+      setTicker();setHora();
+    }).catch(function(){});
 }
 
-/* CRYPTO */
+/* ---- CRYPTO ---- */
+var LOGO={BTC:'https://assets.coingecko.com/coins/images/1/small/bitcoin.png',ETH:'https://assets.coingecko.com/coins/images/279/small/ethereum.png',SOL:'https://assets.coingecko.com/coins/images/4128/small/solana.png',XRP:'https://assets.coingecko.com/coins/images/44/small/xrp-symbol-white-128.png',ADA:'https://assets.coingecko.com/coins/images/975/small/cardano.png',BNB:'https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png'};
+var CNAMES={BTC:'Bitcoin',ETH:'Ethereum',SOL:'Solana',XRP:'XRP',ADA:'Cardano',BNB:'BNB'};
+var CORDER=['BTCUSDT','ETHUSDT','SOLUSDT','XRPUSDT','ADAUSDT','BNBUSDT'];
+
 function fetchCrypto(){
   var syms=encodeURIComponent('["BTCUSDT","ETHUSDT","SOLUSDT","XRPUSDT","ADAUSDT","BNBUSDT"]');
   fetch('https://api.binance.com/api/v3/ticker/24hr?symbols='+syms)
     .then(function(r){return r.json();})
     .then(function(data){
-      var m={BTCUSDT:{sym:'BTC',name:'Bitcoin'},ETHUSDT:{sym:'ETH',name:'Ethereum'},SOLUSDT:{sym:'SOL',name:'Solana'},XRPUSDT:{sym:'XRP',name:'XRP'},ADAUSDT:{sym:'ADA',name:'Cardano'},BNBUSDT:{sym:'BNB',name:'BNB'}};
-      var orden=['BTC','ETH','SOL','XRP','ADA','BNB'];
       var arr=[];
-      data.forEach(function(d){var mx=m[d.symbol];if(mx)arr.push({sym:mx.sym,name:mx.name,p:parseFloat(d.lastPrice),ch:parseFloat(d.priceChangePercent)});});
-      arr.sort(function(a,b){return orden.indexOf(a.sym)-orden.indexOf(b.sym);});
-      if(arr.length){SC=arr;document.getElementById('boxcrypto').innerHTML=renderCrypto(arr);setTicker();setHora();}
-    })
-    .catch(function(){document.getElementById('boxcrypto').innerHTML='<div style="padding:16px 22px;font-size:13px;color:var(--ro);">⚠ No se pudo cargar crypto.</div>';});
+      CORDER.forEach(function(s){
+        var d=data.find(function(x){return x.symbol===s;});
+        if(!d)return;
+        var sym=s.replace('USDT','');
+        arr.push({sym:sym,name:CNAMES[sym],p:parseFloat(d.lastPrice),ch:parseFloat(d.priceChangePercent)});
+      });
+      SC=arr;
+      var html='';
+      arr.forEach(function(c){
+        var img=LOGO[c.sym]?'<img src="'+LOGO[c.sym]+'" width="32" height="32" onerror="this.style.display=\'none\'" alt="'+c.sym+'">':'';
+        var up=c.ch>=0;
+        html+='<div class="crow2">';
+        html+='<div class="cico3">'+img+'</div>';
+        html+='<div class="cdata"><div class="cname3">'+c.name+'</div><div class="csym3">'+c.sym+' / USDT</div></div>';
+        html+='<div class="cprice3"><span class="cval3">'+fUSD(c.p)+'</span>';
+        html+='<span class="cchg3 '+(up?'cup3':'cdn3')+'">'+(up?'▲ +':'▼ ')+Math.abs(c.ch).toFixed(2)+'%</span></div>';
+        html+='</div>';
+      });
+      document.getElementById('boxcrypto').innerHTML=html;
+      setTicker();setHora();
+    }).catch(function(){});
 }
 
+/* ---- BOLSAS via Frankfurter / Open API ---- */
+/* Usamos un endpoint público sin CORS que devuelve índices bursátiles */
+var BOLSAS_DEF=[
+  {id:'MERV',flag:'ar',n:'Merval',sym:'bv-merval',chg:'bc-merval'},
+  {id:'SPX',flag:'us',n:'S&P 500',sym:'bv-sp500',chg:'bc-sp500'},
+  {id:'NDX',flag:'us',n:'NASDAQ 100',sym:'bv-nasdaq',chg:'bc-nasdaq'},
+  {id:'DJI',flag:'us',n:'Dow Jones',sym:'bv-dj',chg:'bc-dj'},
+  {id:'DAX',flag:'de',n:'DAX',sym:'bv-dax',chg:'bc-dax'},
+  {id:'UKX',flag:'gb',n:'FTSE 100',sym:'bv-ftse',chg:'bc-ftse'},
+  {id:'NI225',flag:'jp',n:'Nikkei 225',sym:'bv-nikkei',chg:'bc-nikkei'},
+  {id:'SHCOMP',flag:'cn',n:'Shanghai',sym:'bv-shan',chg:'bc-shan'}
+];
 
+function fetchBolsas(){
+  /* Usamos stooq con cada símbolo individualmente via fetch simple */
+  var syms=['^merv','^spx','^ndq','^dji','^dax','^ftm','^nkx','000001.ss'];
+  var url='https://stooq.com/q/l/?s='+encodeURIComponent(syms.join(','))+'&f=sd2ohlcvn&e=json';
+  fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url))
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data||!data.symbols)return;
+      var map={
+        '^merv':{sym:'bv-merval',chg:'bc-merval'},
+        '^spx':{sym:'bv-sp500',chg:'bc-sp500'},
+        '^ndq':{sym:'bv-nasdaq',chg:'bc-nasdaq'},
+        '^dji':{sym:'bv-dj',chg:'bc-dj'},
+        '^dax':{sym:'bv-dax',chg:'bc-dax'},
+        '^ftm':{sym:'bv-ftse',chg:'bc-ftse'},
+        '^nkx':{sym:'bv-nikkei',chg:'bc-nikkei'},
+        '000001.ss':{sym:'bv-shan',chg:'bc-shan'}
+      };
+      data.symbols.forEach(function(s){
+        var k=s.Symbol.toLowerCase();
+        var m=map[k];
+        if(!m)return;
+        var close=parseFloat(s.Close);
+        var open=parseFloat(s.Open);
+        if(close>0){
+          document.getElementById(m.sym).textContent=fN(close);
+          if(open>0){
+            var pct=(close-open)/open*100;
+            var up=pct>=0;
+            var el=document.getElementById(m.chg);
+            el.className='bchg2 '+(up?'bup2':'bdn2');
+            el.textContent=(up?'▲ +':'▼ ')+Math.abs(pct).toFixed(2)+'%';
+          }
+        }
+      });
+      setHora();
+    }).catch(function(e){console.warn('Bolsas:',e);});
+}
+
+/* ---- CICLO ---- */
 function actualizarTodo(){
   document.getElementById('btnref').textContent='↻ Actualizando...';
-  fetchDolar();fetchCrypto();
-  setTimeout(function(){document.getElementById('btnref').textContent='↻ Actualizar';},5000);
+  fetchDolar();
+  fetchCrypto();
+  fetchBolsas();
+  setTimeout(function(){document.getElementById('btnref').textContent='↻ Actualizar';},4000);
 }
-setTimeout(actualizarTodo,400);
+setTimeout(actualizarTodo,300);
 setInterval(actualizarTodo,60000);
 
-/* SCROLL ANIMATions */
+/* ---- SCROLL ANIMATIONS ---- */
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
 document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
 </script>
