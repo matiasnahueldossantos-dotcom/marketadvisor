@@ -228,30 +228,45 @@ footer{background:var(--az);padding:32px 48px;display:flex;justify-content:space
       <div class="chead"><span class="chtit">Criptomonedas</span><span class="chbadge cbcrypto">CRYPTO</span></div>
       <div id="boxcrypto"><div style="padding:20px 22px;color:var(--gr);font-size:13px;font-family:'JetBrains Mono',monospace;">Conectando...</div></div>
     </div>
-    <div class="ccard cb" style="overflow:visible;">
+    <div class="ccard cb" style="overflow:hidden;">
       <div class="chead"><span class="chtit">Bolsas del Mundo</span><span class="chbadge cbglobal">GLOBAL</span></div>
-      <div style="height:400px;overflow:hidden;border-radius:0 0 24px 24px;">
-        <div class="tradingview-widget-container" style="height:100%;">
-          <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+      <div style="height:430px;overflow:hidden;">
+        <div class="tradingview-widget-container" style="height:430px;width:100%;">
+          <div class="tradingview-widget-container__widget" style="height:430px;width:100%;"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
           {
-            "title": "",
-            "title_raw": "",
+            "colorTheme": "light",
+            "dateRange": "1D",
+            "showChart": false,
             "locale": "es",
             "width": "100%",
-            "height": "400",
-            "showSymbolLogo": true,
-            "colorTheme": "light",
+            "height": "430",
+            "largeChartUrl": "",
             "isTransparent": true,
-            "symbols": [
-              {"s": "BCBA:MERVAL", "d": "Merval"},
-              {"s": "SP:SPX", "d": "S&P 500"},
-              {"s": "NASDAQ:NDX", "d": "NASDAQ"},
-              {"s": "DJ:DJI", "d": "Dow Jones"},
-              {"s": "XETR:DAX", "d": "DAX"},
-              {"s": "LSE:UKX", "d": "FTSE 100"},
-              {"s": "TVC:NI225", "d": "Nikkei 225"},
-              {"s": "SSE:000001", "d": "Shanghai"}
+            "showSymbolLogo": true,
+            "showFloatingTooltip": false,
+            "plotLineColorGrowing": "#10B981",
+            "plotLineColorFalling": "#EF4444",
+            "gridLineColor": "rgba(21,88,168,0.06)",
+            "scaleFontColor": "rgba(100,116,139,0.8)",
+            "belowLineFillColorGrowing": "rgba(16,185,129,0.06)",
+            "belowLineFillColorFalling": "rgba(239,68,68,0.06)",
+            "symbolActiveColor": "rgba(21,88,168,0.06)",
+            "tabs": [
+              {
+                "title": "Índices",
+                "symbols": [
+                  {"s": "BCBA:IMV", "d": "Merval"},
+                  {"s": "SP:SPX", "d": "S&P 500"},
+                  {"s": "NASDAQ:NDX", "d": "NASDAQ 100"},
+                  {"s": "DJ:DJI", "d": "Dow Jones"},
+                  {"s": "XETR:DAX", "d": "DAX"},
+                  {"s": "LSE:UKX", "d": "FTSE 100"},
+                  {"s": "TVC:NI225", "d": "Nikkei 225"},
+                  {"s": "SSE:000001", "d": "Shanghai"}
+                ],
+                "originalTitle": "Indices"
+              }
             ]
           }
           </script>
